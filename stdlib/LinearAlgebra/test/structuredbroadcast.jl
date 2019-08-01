@@ -39,6 +39,7 @@ using Test, LinearAlgebra
         @test X .^ (2,) isa typeof(X)
         @test X .^ two isa typeof(X)
         @test X .^ 0 == fX .^ 0
+        @test X .^ -1 == fX .^ -1
 
         for (Y, fY) in zip(structuredarrays, fstructuredarrays)
             @test broadcast(+, X, Y) == broadcast(+, fX, fY)
